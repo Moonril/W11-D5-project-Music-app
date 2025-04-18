@@ -75,8 +75,8 @@ const NuoveUscite = function () {
                                 <Card className="border-0 bg-transparent" >
                                     <Card.Img variant="top" src={song.album.cover_big} />
                                     <Card.Body className="px-0 bg-transparent text-light">
-                                        <Card.Title>{song.album.title}</Card.Title>
-                                        <Card.Text>{song.artist.name}</Card.Text>
+                                        <Card.Title className="fs-6">{song.album.title}</Card.Title>
+                                        <Card.Text className="fs-6 text-secondary">{song.artist.name}</Card.Text>
                                     </Card.Body>
                                 </Card>
                     </Col>
