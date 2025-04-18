@@ -34,6 +34,7 @@ const MyNavbar = function () {
                                 className="me-2"
                                 aria-label="Search"
                                 value={inputValue}
+                                data-bs-theme="dark"
                                 onChange={(e) => setInputValue(e.target.value)}
                                 />
                             </Form>
