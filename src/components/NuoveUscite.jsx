@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react"
-import { Alert, Card, Col, Spinner } from "react-bootstrap"
+import { Alert, Button, Card, Col, Spinner } from "react-bootstrap"
+import { FaPlay } from "react-icons/fa"
+import { useDispatch } from "react-redux"
+import { selectSongAction } from "../redux/actions"
 
 const API = 'https://striveschool-api.herokuapp.com/api/deezer/search?q=electrcicallboys'
 
@@ -8,6 +11,8 @@ const NuoveUscite = function () {
     const [songs, setSongs] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const [isError, setIsError] = useState(false)
+
+    const dispatch = useDispatch()
 
     const getSongs = () => {
 
@@ -74,9 +79,14 @@ const NuoveUscite = function () {
                 <Col xs={4} md={3} key={song.id} >
                                 <Card className="border-0 bg-transparent" >
                                     <Card.Img variant="top" src={song.album.cover_big} />
-                                    <Card.Body className="px-0 bg-transparent text-light">
+                                    <Card.Body className="px-0 bg-transparent text-light d-flex justify-content-between">
+                                        <div>
                                         <Card.Title className="fs-6">{song.album.title}</Card.Title>
                                         <Card.Text className="fs-6 text-secondary">{song.artist.name}</Card.Text>
+                                        </div>
+                                        <div><Button className="text-secondary bg-transparent border-0" onClick={()=>{
+                                            dispatch(selectSongAction(song.album.title, song.artist.name))
+                                        }}><FaPlay /></Button></div>
                                     </Card.Body>
                                 </Card>
                     </Col>
