@@ -1,16 +1,21 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
-import MyFooter from './components/Footer'
+
+import MyNavbar from './components/MyNavbar'
+import HomePage from './components/HomePage'
 
 function App() {
 
 
   return (
-    <>
+    <main className="">
 
-      <MyFooter />
 
-    </>
+      <MyNavbar />
+      <HomePage />
+      
+    </main>
+
   )
 }
 

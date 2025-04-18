@@ -1,6 +1,6 @@
 const MyFooter = function () {
     return (
-        <footer>
+        <footer className="bg-info">
             Copyright
         </footer>
     )
