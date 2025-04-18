@@ -3,8 +3,15 @@ import { CiSearch } from "react-icons/ci"
 import { IoIosRadio } from "react-icons/io"
 import { PiSquaresFourLight } from "react-icons/pi"
 import { RiHome2Line } from "react-icons/ri"
+import { useDispatch } from "react-redux"
+import { searchArtistAction } from "../redux/actions"
+import { useState } from "react"
 
 const MyNavbar = function () {
+
+    const [inputValue, setInputValue] = useState('')
+    const dispatch = useDispatch()
+
     return (
         <header className="bg-dark flex-grow-1 p-1">
             <Navbar expand="md" className="bg-body-tertiary p-0">
@@ -17,12 +24,17 @@ const MyNavbar = function () {
                             style={{ maxHeight: '100px' }}
                             navbarScroll
                         >
-                            <Form className="d-flex py-2">
+                            <Form className="d-flex py-2" onSubmit={(e) => {
+                                e.preventDefault()
+                                dispatch(searchArtistAction(inputValue))
+                            }}>
                                 <Form.Control
                                 type="search"
                                 placeholder="&#x1F50E;&#xFE0E; Search"
                                 className="me-2"
                                 aria-label="Search"
+                                value={inputValue}
+                                onChange={(e) => setInputValue(e.target.value)}
                                 />
                             </Form>
                             <div className="py-2">
