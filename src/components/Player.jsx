@@ -14,10 +14,10 @@ const Player = function () {
 
     return(
         <div id="player">
-            <Navbar expand="md" className="bg-dark border-start border-black text-light rounded-2">
+            <Navbar expand="md" className="text-light">
                 <Container>
                     
-                    <Button className="d-md-none footer border-secondary text-secondary"><GiLoveSong /></Button>
+                    <Button className="d-md-none footer text-secondary"><GiLoveSong /></Button>
                     <Navbar.Collapse id="basic-navbar-nav" className="text-light">
                         <Button variant="dark" className="text-secondary"><IoIosShuffle /></Button>
                         <Button variant="dark" className="text-secondary"><TbPlayerTrackPrevFilled /></Button>

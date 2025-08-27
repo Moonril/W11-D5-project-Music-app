@@ -6,24 +6,41 @@ body {
     filter: invert(100%);
 }
 
-#toggol {
-    background-color: whitesmoke !important;
-}
 
-.footer {
-    background-color: #323232;
-}
 
-.footer {
-    font-size: 10px !important;
+.nav-link-selected {
+    background-color: #39393B;
 }
 
 .accedi {
     font-size: 10px;
+
 }
 
+.footer {
+    font-size: 10px !important;
+    background-color: #323232;
+}
+
+/* header */
+header {
+    background-color: #252526;
+    border-right: solid 1px #39393B;
+}
+
+.sidebar-fixed {
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    left: 0;
+    z-index: 1020;
+}
+
+
+/* player */
+
 #player {
-    background-color: #242424;
+    background-color: #2C2C2C !important;
 }
 
 
@@ -34,5 +51,27 @@ body {
         left: 1rem;
         z-index: 100;
         width: 95%;
+        border-radius: 10px;
+        background-color: #232323;
     }
 }
+
+@media only screen and (min-width: 768px) {
+    #player {
+        position: sticky;
+        top: 0;
+        z-index:1090
+    }
+}
+
+/* mobile navbar toggle */
+
+#toggol {
+    color: transparent !important;
+}
+
+#toggol .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='red' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+
