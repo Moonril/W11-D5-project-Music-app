@@ -17,22 +17,29 @@ const Player = function () {
             <Navbar expand="md" className="text-light">
                 <Container>
                     
+                    {/* change with song img */}
                     <Button className="d-md-none footer text-secondary"><GiLoveSong /></Button>
+
+                    {/* collapse in mobile */}
                     <Navbar.Collapse id="basic-navbar-nav" className="text-light">
-                        <Button variant="dark" className="text-secondary"><IoIosShuffle /></Button>
-                        <Button variant="dark" className="text-secondary"><TbPlayerTrackPrevFilled /></Button>
-                        <Button variant="dark" className="text-secondary"><FaPlay /></Button>
-                        <Button variant="dark" className="text-secondary"><TbPlayerTrackNextFilled /></Button>
-                        <Button variant="dark" className="text-secondary"><IoIosRepeat /></Button>
+                        <Button variant="dark" className="text-secondary bg-transparent border-0 player-buttons"><IoIosShuffle /></Button>
+                        <Button variant="dark" className="text-secondary bg-transparent border-0 player-buttons"><TbPlayerTrackPrevFilled /></Button>
+                        <Button variant="dark" className="text-secondary bg-transparent border-0 player-buttons"><FaPlay /></Button>
+                        <Button variant="dark" className="text-secondary bg-transparent border-0 player-buttons"><TbPlayerTrackNextFilled /></Button>
+                        <Button variant="dark" className="text-secondary bg-transparent border-0 player-buttons"><IoIosRepeat /></Button>
                     </Navbar.Collapse>
 
-                    <Navbar.Text className="text-light bg-secondary rounded-1 px-3">{selectedSong.song + ' - ' + selectedSong.author}</Navbar.Text>
+                    {/* title */}
+                    <Navbar.Text className="text-light rounded-1 px-3 player-song-title w-100 w-md-auto">{selectedSong.song + ' - ' + selectedSong.author}</Navbar.Text>
+
+                    {/* another collapse */}
                     <Navbar.Collapse className="justify-content-end text-light" id="basic-navbar-nav">
                         <Button variant="danger" className="py-0 d-flex"><span className="pe-1"><FaUser className="accedi" /></span> <span>Accedi</span></Button>
                     </Navbar.Collapse>
+                    {/* mobile play buttons */}
                     <div className="d-md-none">
-                        <Button variant="dark"><FaPlay /></Button>
-                        <Button variant="dark"><TbPlayerTrackNextFilled /></Button>
+                        <Button variant="dark player-buttons bg-transparent border-0"><FaPlay /></Button>
+                        <Button variant="dark player-buttons bg-transparent border-0"><TbPlayerTrackNextFilled /></Button>
                     </div>
                 </Container>
             </Navbar>

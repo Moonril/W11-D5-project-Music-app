@@ -64,6 +64,27 @@ header {
     }
 }
 
+.player-buttons:hover {
+    color: white !important;
+}
+.player-buttons:active {
+    background-color: grey !important;
+    border-radius: 20px;
+}
+
+.player-song-title {
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    width: auto;
+}
+
+@media (max-width: 768px) {
+  .player-song-title {
+    max-width: 200px;
+  }
+}
+
 /* mobile navbar toggle */
 
 #toggol {
