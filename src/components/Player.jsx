@@ -30,7 +30,7 @@ const Player = function () {
                     </Navbar.Collapse>
 
                     {/* title */}
-                    <Navbar.Text className="text-light rounded-1 px-3 player-song-title w-100 w-md-auto">{selectedSong.song + ' - ' + selectedSong.author}</Navbar.Text>
+                    <Navbar.Text className="text-light rounded-1 px-3 player-song-title w-100 w-md-auto text-center">{selectedSong.song + ' - ' + selectedSong.author}</Navbar.Text>
 
                     {/* another collapse */}
                     <Navbar.Collapse className="justify-content-end text-light" id="basic-navbar-nav">
