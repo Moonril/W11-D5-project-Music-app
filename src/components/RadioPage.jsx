@@ -1,6 +1,6 @@
 const RadioPage = function (){
     return (
-        <div></div>
+        <div className="flex-grow-1 main p-3"></div>
     )
 }
 

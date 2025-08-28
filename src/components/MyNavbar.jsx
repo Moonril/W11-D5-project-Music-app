@@ -6,13 +6,13 @@ import { RiHome2Line } from "react-icons/ri"
 import { useDispatch } from "react-redux"
 import { searchArtistAction } from "../redux/actions"
 import { useState } from "react"
-import { useLocation } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 
 const MyNavbar = function () {
 
     const [inputValue, setInputValue] = useState('')
     const dispatch = useDispatch()
-    const location = useLocation
+    const location = useLocation()
 
     return (
         <header className="flex-grow-1 p-1">
@@ -41,9 +41,11 @@ const MyNavbar = function () {
                                 />
                             </Form>
                             <div className="py-2">
-                                <Nav.Link href="#action1" className={location.pathname === '/' ? "text-light py-1" : ' text-light py-1 nav-link-selected rounded-2'}><RiHome2Line className="text-danger" /> Home</Nav.Link>
-                                <Nav.Link href="#action2" className={location.pathname === '/' ? "text-light py-1" : ' text-light py-1 nav-link-selected rounded-2'}><PiSquaresFourLight className="text-danger"/> Novità</Nav.Link>
-                                <Nav.Link href="#action3" className={location.pathname === '/' ? "text-light py-1" : ' text-light py-1 nav-link-selected rounded-2'}><IoIosRadio className="text-danger"/> Radio</Nav.Link>
+                                <Nav.Link as={Link} to='/' className={location.pathname === '/' ? ' text-light py-1 nav-link-selected rounded-2' : "text-light py-1"}><RiHome2Line className="text-danger" /> Home</Nav.Link>
+
+                                <Nav.Link as={Link} to='/new' className={location.pathname === '/new' ? ' text-light py-1 nav-link-selected rounded-2' : "text-light py-1"}><PiSquaresFourLight className="text-danger"/> Novità</Nav.Link>
+
+                                <Nav.Link as={Link} to='/radio' className={location.pathname === '/radio' ? ' text-light py-1 nav-link-selected rounded-2' : "text-light py-1"}><IoIosRadio className="text-danger"/> Radio</Nav.Link>
                             </div>
                             
                         </Nav>
