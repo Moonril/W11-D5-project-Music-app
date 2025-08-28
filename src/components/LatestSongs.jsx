@@ -1,14 +1,15 @@
 import { useEffect, useRef, useState } from "react"
-import { Alert, Button, Card, Col, Spinner } from "react-bootstrap"
+import { Alert, Button, Card, Col, Row, Spinner } from "react-bootstrap"
 import { FaPlay } from "react-icons/fa"
 import { useDispatch, useSelector } from "react-redux"
 import { selectSongAction } from "../redux/actions"
 import { IoIosPause } from "react-icons/io"
+import { RxDotsHorizontal } from "react-icons/rx"
 
 
 const API = 'https://striveschool-api.herokuapp.com/api/deezer/search?q='
 
-const NuoveUscite = function () {
+const LatestSongs = function () {
 
     const [songs, setSongs] = useState([])
     const [isLoading, setIsLoading] = useState(true)
@@ -100,22 +101,15 @@ const NuoveUscite = function () {
         {
             songs.map((song, i) =>(
                 
-                <Col xs={4} md={3} key={song.id} >
-                                <Card className="border-0 bg-transparent" >
-                                    <Card.Img variant="top" src={song.album.cover_big} />
-                                    <Card.Body className="px-0 bg-transparent text-light d-flex justify-content-between">
-                                        <div>
-                                            <Card.Title className="fs-6">{song.album.title}</Card.Title>
-                                            <Card.Text className="fs-6 text-secondary">{song.artist.name}</Card.Text>
-                                        </div>
-                                        {/* <audio ref={audioRef} src={song.preview} /> */}
-                                        <div><Button className="text-secondary bg-transparent border-0" onClick={()=>{
-                                            dispatch(selectSongAction(song.album.title, song.artist.name))
-                                            togglePlay()
-                                        }}>{isPlaying ? <IoIosPause /> : <FaPlay />}</Button></div>
-                                        
-                                    </Card.Body>
-                                </Card>
+                <Col xs={6} lg={3} key={song.id} >
+                        <Row className="text-light">
+                            <Col xs={3}><img src={song.album.cover_big} alt="" className="small-card-img" /></Col>
+                            <Col xs={7}>
+                                <p className="accedi m-0 p-0">{song.album.title}</p>
+                                <p className="accedi m-0 p-0">{song.artist.name}</p>
+                            </Col>
+                            <Col xs={2} className="text-danger"><RxDotsHorizontal /></Col>
+                        </Row>
                     </Col>
                 )
                 
@@ -126,4 +120,4 @@ const NuoveUscite = function () {
     )
 }
 
-export default NuoveUscite
+export default LatestSongs

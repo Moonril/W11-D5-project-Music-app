@@ -14,7 +14,9 @@ body {
     background-image: linear-gradient(to bottom right, #F7415E, #F2233A, #e2172f, #F2233A, #F7415E);
 }
 
-
+.small-card-img{
+    width: 50px;
+}
 
 .nav-link-selected {
     background-color: #39393B;
@@ -114,6 +116,30 @@ header {
 }
 
 
+/* scrollbar */
 
+.row.flex-nowrap {
+  overflow-x: auto;
+  scrollbar-width: thin;              /* Firefox */
+  scrollbar-color: #999 transparent;  /* Firefox: thumb e track */
+}
+
+/* Chrome, Edge, Safari */
+.row.flex-nowrap::-webkit-scrollbar {
+  height: 6px; 
+}
+
+.row.flex-nowrap::-webkit-scrollbar-track {
+  background: transparent; 
+}
+
+.row.flex-nowrap::-webkit-scrollbar-thumb {
+  background-color: #999;
+  border-radius: 10px
+}
+
+.row.flex-nowrap::-webkit-scrollbar-thumb:hover {
+  background-color: #666;
+}
 
 
