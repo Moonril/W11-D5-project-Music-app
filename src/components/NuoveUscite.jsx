@@ -17,6 +17,7 @@ const NuoveUscite = function () {
     /* L'audio funziona ma al momento suona solo una canzone, attenzione alle orecchie, era solo una prova, non ho avuto tempo di implementarlo correttamente */
     const audioRef = useRef(null)
     const [isPlaying, setIsPlaying] = useState(false)
+    const [currentPlayingSong, setCurrentPlayingSong] = useState(null)
 
     const dispatch = useDispatch()
 
@@ -36,7 +37,7 @@ const NuoveUscite = function () {
         })
         .then((songsdata) => {
             //console.log('api response object', songsdata)
-            //console.log('api response, list of songs', songsdata.data)
+            console.log('api response, list of songs', songsdata.data)
 
 
             /* const arrSongs = [...songsdata.data.slice(0, 2), ...songsdata.data.slice(4, 10)] */
@@ -54,18 +55,24 @@ const NuoveUscite = function () {
 
 
     // audio
-    const togglePlay = () => {
-        if (!audioRef.current) return;
+    const togglePlay = (song) => {
+        if (!audioRef.current) return
     
-        if (isPlaying) {
-          audioRef.current.pause()
-        } else {
-          audioRef.current.play()
+        if (currentPlayingSong && currentPlayingSong.id === song.id) {
+            if (isPlaying) {
+            audioRef.current.pause()
+            } else {
+            audioRef.current.play()
+            }
+            setIsPlaying(!isPlaying)
+            } else {
+            
+            setCurrentPlayingSong(song)
+            audioRef.current.src = song.preview
+            audioRef.current.play()
+            setIsPlaying(true)
         }
-    
-        setIsPlaying(!isPlaying)
-        console.log('playing', audioRef.current)
-      }
+    }
 
     useEffect(()=>{
         getSongs()
@@ -94,6 +101,8 @@ const NuoveUscite = function () {
                 )
             }
 
+        <audio ref={audioRef} /> {/* audio works, just very loud */}
+
         {
             songs.map((song, i) =>(
                 
@@ -102,13 +111,13 @@ const NuoveUscite = function () {
                                     <Card.Img variant="top" src={song.album.cover_big} />
                                     <Card.Body className="px-0 bg-transparent text-light d-flex justify-content-between">
                                         <div>
-                                            <Card.Title className="fs-6">{song.album.title}</Card.Title>
+                                            <Card.Title className="fs-6">{song.title}</Card.Title>
                                             <Card.Text className="fs-6 text-secondary">{song.artist.name}</Card.Text>
                                         </div>
-                                        <audio ref={audioRef} src={song.preview} />
+                                        
                                         <div><Button className="text-secondary bg-transparent border-0" onClick={()=>{
                                             dispatch(selectSongAction(song.album.title, song.artist.name))
-                                            togglePlay()
+                                            togglePlay(song)
                                         }}>{isPlaying ? <IoIosPause /> : <FaPlay />}</Button></div>
                                         
                                     </Card.Body>

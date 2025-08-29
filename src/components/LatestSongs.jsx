@@ -15,9 +15,10 @@ const LatestSongs = function () {
     const [isLoading, setIsLoading] = useState(true)
     const [isError, setIsError] = useState(false)
 
-    /* L'audio funziona ma al momento suona solo una canzone, attenzione alle orecchie, era solo una prova, non ho avuto tempo di implementarlo correttamente */
+    /* audio */
     const audioRef = useRef(null)
     const [isPlaying, setIsPlaying] = useState(false)
+    const [currentPlayingSong, setCurrentPlayingSong] = useState(null)
 
     const dispatch = useDispatch()
 
@@ -59,18 +60,24 @@ const LatestSongs = function () {
 
 
     // audio
-    const togglePlay = () => {
+    const togglePlay = (song) => {
         if (!audioRef.current) return
     
-        if (isPlaying) {
-          audioRef.current.pause()
-        } else {
-          audioRef.current.play()
+        if (currentPlayingSong && currentPlayingSong.id === song.id) {
+            if (isPlaying) {
+            audioRef.current.pause()
+            } else {
+            audioRef.current.play()
+            }
+            setIsPlaying(!isPlaying)
+            } else {
+            
+            setCurrentPlayingSong(song)
+            audioRef.current.src = song.preview
+            audioRef.current.play()
+            setIsPlaying(true)
         }
-    
-        setIsPlaying(!isPlaying)
-        
-      }
+    }
 
     useEffect(()=>{
         getSongs()
