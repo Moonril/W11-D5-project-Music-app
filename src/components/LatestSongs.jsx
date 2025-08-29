@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react"
-import { Alert, Button, Card, Col, Row, Spinner } from "react-bootstrap"
+import { Alert, Button, Card, Col, NavDropdown, Row, Spinner } from "react-bootstrap"
 import { FaPlay } from "react-icons/fa"
 import { useDispatch, useSelector } from "react-redux"
 import { selectSongAction } from "../redux/actions"
@@ -60,15 +60,16 @@ const LatestSongs = function () {
 
     // audio
     const togglePlay = () => {
-        if (!audioRef.current) return;
+        if (!audioRef.current) return
     
         if (isPlaying) {
-          audioRef.current.pause();
+          audioRef.current.pause()
         } else {
-          audioRef.current.play();
+          audioRef.current.play()
         }
     
-        setIsPlaying(!isPlaying);
+        setIsPlaying(!isPlaying)
+        
       }
 
     useEffect(()=>{
@@ -102,13 +103,30 @@ const LatestSongs = function () {
             songs.map((song, i) =>(
                 
                 <Col xs={6} lg={3} key={song.id} >
-                        <Row className="text-light">
-                            <Col xs={3}><img src={song.album.cover_big} alt="" className="small-card-img" /></Col>
+                        <Row className="text-light m-1 py-1 row-mini-card-border">
+                            <Col xs={3} className="mini-card-img position-relative"><img src={song.album.cover_big} alt="" className="small-card-img " /><div className=" play-btn-overlay-small-card"><FaPlay /></div></Col>
                             <Col xs={7}>
                                 <p className="accedi m-0 p-0">{song.album.title}</p>
                                 <p className="accedi m-0 p-0">{song.artist.name}</p>
                             </Col>
-                            <Col xs={2} className="text-danger"><RxDotsHorizontal /></Col>
+                            <Col xs={2} className="text-danger align-self-center">
+                                <NavDropdown
+                                id="nav-dropdown-dark-example"
+                                title={<RxDotsHorizontal />}
+                                menuVariant="dark"
+                                >
+                                    <NavDropdown.Item href="#action/3.1">View Credits</NavDropdown.Item>
+                                    <NavDropdown.Item href="#action/3.2" >
+                                        Share
+                                    </NavDropdown.Item>
+                                    <NavDropdown.Item href="#action/3.3" >Copy Link</NavDropdown.Item>
+                                    <NavDropdown.Item href="#action/3.4">
+                                        Copy Embedded Code
+                                    </NavDropdown.Item>
+                                </NavDropdown>
+                                    
+                                
+                            </Col>
                         </Row>
                     </Col>
                 )

@@ -35,13 +35,9 @@ const NuoveUscite = function () {
             }
         })
         .then((songsdata) => {
-            console.log('data', songsdata)
-            console.log('data', songsdata.data)
-            // oggetto -> array(25)
-            //img: data[0].album.cover
-            // song: data[0].album.title
-            // album: data[0].artist.name
-            // data[0].preview
+            //console.log('api response object', songsdata)
+            //console.log('api response, list of songs', songsdata.data)
+
 
             /* const arrSongs = [...songsdata.data.slice(0, 2), ...songsdata.data.slice(4, 10)] */
             setSongs([...songsdata.data.slice(0, 10)])
@@ -62,12 +58,13 @@ const NuoveUscite = function () {
         if (!audioRef.current) return;
     
         if (isPlaying) {
-          audioRef.current.pause();
+          audioRef.current.pause()
         } else {
-          audioRef.current.play();
+          audioRef.current.play()
         }
     
-        setIsPlaying(!isPlaying);
+        setIsPlaying(!isPlaying)
+        console.log('playing', audioRef.current)
       }
 
     useEffect(()=>{
@@ -108,7 +105,7 @@ const NuoveUscite = function () {
                                             <Card.Title className="fs-6">{song.album.title}</Card.Title>
                                             <Card.Text className="fs-6 text-secondary">{song.artist.name}</Card.Text>
                                         </div>
-                                        {/* <audio ref={audioRef} src={song.preview} /> */}
+                                        <audio ref={audioRef} src={song.preview} />
                                         <div><Button className="text-secondary bg-transparent border-0" onClick={()=>{
                                             dispatch(selectSongAction(song.album.title, song.artist.name))
                                             togglePlay()

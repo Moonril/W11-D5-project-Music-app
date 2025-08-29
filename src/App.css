@@ -14,9 +14,7 @@ body {
     background-image: linear-gradient(to bottom right, #F7415E, #F2233A, #e2172f, #F2233A, #F7415E);
 }
 
-.small-card-img{
-    width: 50px;
-}
+
 
 .nav-link-selected {
     background-color: #39393B;
@@ -142,4 +140,38 @@ header {
   background-color: #666;
 }
 
+/* mini card latest songs */
 
+.small-card-img{
+    width: 50px;
+}
+
+@media only screen and (max-width: 500px) {
+    .small-card-img{
+        width: 40px;
+    }
+}
+
+.mini-card-img:hover {
+   opacity: 50%; 
+}
+
+.dropdown-toggle::after {
+  display: none !important; 
+}
+
+.play-btn-overlay-small-card {
+    position: absolute;
+    top: 25%;
+    left: 28px;
+    opacity: 0;
+
+}
+.play-btn-overlay-small-card:hover {
+    opacity: 100;
+}
+
+.row-mini-card-border{
+    border-top: solid 1px #363636;
+    border-bottom: solid 1px #363636;
+}
