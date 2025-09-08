@@ -14,7 +14,7 @@ const NuoveUscite = function () {
     const [isLoading, setIsLoading] = useState(true)
     const [isError, setIsError] = useState(false)
 
-    /* L'audio funziona ma al momento suona solo una canzone, attenzione alle orecchie, era solo una prova, non ho avuto tempo di implementarlo correttamente */
+  
     const audioRef = useRef(null)
     const [isPlaying, setIsPlaying] = useState(false)
     const [currentPlayingSong, setCurrentPlayingSong] = useState(null)
@@ -57,6 +57,9 @@ const NuoveUscite = function () {
     // audio
     const togglePlay = (song) => {
         if (!audioRef.current) return
+
+        // preset volume
+        audioRef.current.volume = 0.9
     
         if (currentPlayingSong && currentPlayingSong.id === song.id) {
             if (isPlaying) {
@@ -69,6 +72,9 @@ const NuoveUscite = function () {
             
             setCurrentPlayingSong(song)
             audioRef.current.src = song.preview
+
+            audioRef.current.volume = 0.2
+
             audioRef.current.play()
             setIsPlaying(true)
         }

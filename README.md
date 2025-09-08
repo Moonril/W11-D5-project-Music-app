@@ -1,12 +1,75 @@
-# React + Vite
+<a id="readme-top"></a>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+  <h3 align="center">Apple Music Clone</h3>
+
+    
+  </p>
+</div>
+
+
+
+
+<!-- ABOUT THE PROJECT -->
+## About The Project
+
+![News page](image.png) ![Radio page](image-1.png)
+![search feature](image-2.png)
+
+# Weather App –  React JS 🏕️🌊
+
+This project completed with React, was created during 3rd month(last Front-end project) of the 6-month full-stack course I attended in 2025:
+A music app clone made using React, Javascript, Redux and Bootstrap.
+I used the API **Deezer** to source music/artists data and songs previews.
+The app allows you to look for artists/albums/songs and listen to song previews(just mind your ears as the volume cannot be regulated yet!!).
+
+
+
+<!-- GETTING STARTED -->
+## Demo
+
+Check it out directly from here:
+
+https://apple-music-clone-sepia.vercel.app/new
+
+## 🌐 Website pages
+
+The website is thus structured:
+- **Home Page** 
+- **New** 
+- **Radio** 
+
+
+
+---
+
+## 🛠️ Tech used
+
+- **Front-End:** HTML, CSS, Javascript, Redux, Bootstrap  
+- **Testing/API:** Dezeer
+
+---
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+
+
+
+<!-- CONTACT -->
+## Contacts
+
+Vincenza Fumarulo - [LinkedIn](https://www.linkedin.com/in/vincenza-fumarulo/) - vinni2690@hotmail.com - [LinkGitHub](https://github.com/moonril/)
+
+**Progect Link:**
+- Frontend: [https://github.com/Moonril/W11-D5-project-Music-app](https://github.com/Moonril/W11-D5-project-Music-app)
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
