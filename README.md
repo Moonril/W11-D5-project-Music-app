@@ -36,7 +36,7 @@ The app allows you to look for artists/albums/songs and listen to song previews(
 
 Check it out directly from here:
 
-https://apple-music-clone-sepia.vercel.app/new
+https://apple-music-clone-sepia.vercel.app/
 
 ## 🌐 Website pages
 
