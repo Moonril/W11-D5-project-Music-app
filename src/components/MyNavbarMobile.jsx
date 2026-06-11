@@ -9,6 +9,7 @@ import { Link, useLocation } from "react-router-dom"
 const MyNavbarMobile = function () {
 
     const [inputValue, setInputValue] = useState('')
+    const [show, setShow] = useState(false)
     const dispatch = useDispatch()
     const location = useLocation()
 
@@ -16,10 +17,10 @@ const MyNavbarMobile = function () {
         <header className="flex-grow-1 p-1 d-md-none">
             <Navbar expand="md" className="p-0">
                 <Container fluid className="d-flex flex-md-column">
-                    <Navbar.Toggle aria-controls="offcanvasNavbar" id="toggol" className="p-1"/>
+                    <Navbar.Toggle aria-controls="offcanvasNavbar" id="toggol" className="p-1" onClick={() => setShow(true)} />
                     <Navbar.Brand className="d-md-none bg-transparent" href="#"><img src="music.svg" alt="eppol logo" className="eppol-logo" /></Navbar.Brand>
                     <Nav.Link href="#action1" className="d-md-none text-danger">Accedi</Nav.Link>
-                    <Navbar.Offcanvas id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" placement="top" className="h-100 text-light">
+                    <Navbar.Offcanvas show={show} onHide={() => setShow(false)} id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" placement="top" className="h-100 text-light">
                         {/* <Nav className="me-auto my-2 my-lg-0 d-flex flex-column text-light"> */}
 
                             <Offcanvas.Header className="d-flex align-items-center" closeButton>
@@ -42,12 +43,12 @@ const MyNavbarMobile = function () {
                                 />
                             </Form>
                             <div className="py-2">
-                                <Nav.Link as={Link} to='/' className={location.pathname === '/' ? ' text-light py-1 nav-link-selected rounded-2' : "text-light py-1"}><RiHome2Line className="text-danger" /> Home</Nav.Link>
+                                <Nav.Link as={Link} to='/' onClick={() => setShow(false)} className={location.pathname === '/' ? ' text-light py-1 nav-link-selected rounded-2' : "text-light py-1"}><RiHome2Line className="text-danger" /> Home</Nav.Link>
                                 
 
-                                <Nav.Link as={Link} to='/new' className={location.pathname === '/new' ? ' text-light py-1 nav-link-selected rounded-2' : "text-light py-1"}><PiSquaresFourLight className="text-danger"/> Novità</Nav.Link>
+                                <Nav.Link as={Link} to='/new' onClick={() => setShow(false)} className={location.pathname === '/new' ? ' text-light py-1 nav-link-selected rounded-2' : "text-light py-1"}><PiSquaresFourLight className="text-danger"/> Novità</Nav.Link>
 
-                                <Nav.Link as={Link} to='/radio' className={location.pathname === '/radio' ? ' text-light py-1 nav-link-selected rounded-2' : "text-light py-1"}><IoIosRadio className="text-danger"/> Radio</Nav.Link>
+                                <Nav.Link as={Link} to='/radio' onClick={() => setShow(false)} className={location.pathname === '/radio' ? ' text-light py-1 nav-link-selected rounded-2' : "text-light py-1"}><IoIosRadio className="text-danger"/> Radio</Nav.Link>
                             </div>
                             </Offcanvas.Body>
     
